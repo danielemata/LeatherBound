@@ -1,0 +1,16 @@
+{
+  "name": "leatherbound",
+  "version": "1.0.0",
+  "description": "A visually appealing and user friendly book tracker. A book tracker that inspires the satisfying feeling of maintaing your beautiful book collection.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
