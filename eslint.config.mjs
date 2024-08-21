@@ -1,21 +1,26 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
-import tseslint from "@typescript-eslint/eslint-plugin"; // Correcting the import
-import tsParser from "@typescript-eslint/parser"; // Adding TypeScript parser
+import tseslint from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import prettier from "eslint-config-prettier";
+import prettierPlugin from "eslint-plugin-prettier";
 
 export default [
   {
     files: ["**/*.{js,mjs,cjs,ts}"],
     languageOptions: {
-      parser: tsParser, // Specify the TypeScript parser
+      parser: tsParser,
       globals: { ...globals.browser, ...globals.node },
     },
     plugins: {
-      "@typescript-eslint": tseslint, // Register the TypeScript ESLint plugin
+      "@typescript-eslint": tseslint,
+      prettier: prettierPlugin,
     },
     rules: {
       ...pluginJs.configs.recommended.rules,
       ...tseslint.configs.recommended.rules,
+      ...prettierPlugin.configs.recommended.rules, // Add Prettier rules
+      "prettier/prettier": "error", // Treat Prettier issues as errors
     },
   },
 ];
